@@ -1,0 +1,1 @@
+2024-07-25 22:08:14,807 - ERROR - An unhandled exception occurred: 'NoneType' object has no attribute 'reset_index'

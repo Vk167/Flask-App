@@ -1,0 +1,1785 @@
+/* Table of contents
+––––––––––––––––––––––––––––––––––––––––––––––––––
+- Plotly.js
+- Grid
+- Base Styles
+- Typography
+- Links
+- Buttons
+- Forms
+- Lists
+- Code
+- Tables
+- Spacing
+- Utilities
+- Clearing
+- Media Queries
+*/
+
+/* PLotly.js
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* plotly.js's modebar's z-index is 1001 by default
+ * https://github.com/plotly/plotly.js/blob/7e4d8ab164258f6bd48be56589dacd9bdd7fded2/src/css/_modebar.scss#L5
+ * In case a dropdown is above the graph, the dropdown's options
+ * will be rendered below the modebar
+ * Increase the select option's z-index
+ */
+
+/* This was actually not quite right -
+   dropdowns were overlapping each other (edited October 26)
+
+.Select {
+    z-index: 1002;
+}
+
+
+/* Grid
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box; }
+.column,
+.columns {
+  width: 100%;
+  float: left;
+  box-sizing: border-box; }
+
+/* For devices larger than 400px */
+@media (min-width: 400px) {
+  .container {
+    width: 85%;
+    padding: 0; }
+}
+
+/* For devices larger than 550px */
+@media (min-width: 550px) {
+  .container {
+    width: 80%; }
+  .column,
+  .columns {
+    margin-left: 40px;
+    margin-right: -15px;
+     }
+  .column:first-child,
+  .columns:first-child {
+    margin-left: 0; }
+
+  .one.column,
+  .one.columns                    { width: 4.66666666667%; }
+  .two.columns                    { width: 13.3333333333%; }
+  .three.columns                  { width: 22%;            }
+  .four.columns                   { width: 30.6666666667%; }
+  .five.columns                   { width: 39.3333333333%; }
+  .six.columns                    { width: 48%;            }
+  .seven.columns                  { width: 56.6666666667%; }
+  .eight.columns                  { width: 65.3333333333%; }
+  .nine.columns                   { width: 74.0%;          }
+  .ten.columns                    { width: 82.6666666667%; }
+  .eleven.columns                 { width: 91.3333333333%; }
+  .twelve.columns                 { width: 100%; margin-left: 0; }
+
+  .one-third.column               { width: 30.6666666667%; }
+  .two-thirds.column              { width: 65.3333333333%; }
+
+  .one-half.column                { width: 48%; }
+
+  /* Offsets */
+  .offset-by-one.column,
+  .offset-by-one.columns          { margin-left: 8.66666666667%; }
+  .offset-by-two.column,
+  .offset-by-two.columns          { margin-left: 17.3333333333%; }
+  .offset-by-three.column,
+  .offset-by-three.columns        { margin-left: 26%;            }
+  .offset-by-four.column,
+  .offset-by-four.columns         { margin-left: 34.6666666667%; }
+  .offset-by-five.column,
+  .offset-by-five.columns         { margin-left: 43.3333333333%; }
+  .offset-by-six.column,
+  .offset-by-six.columns          { margin-left: 52%;            }
+  .offset-by-seven.column,
+  .offset-by-seven.columns        { margin-left: 60.6666666667%; }
+  .offset-by-eight.column,
+  .offset-by-eight.columns        { margin-left: 69.3333333333%; }
+  .offset-by-nine.column,
+  .offset-by-nine.columns         { margin-left: 78.0%;          }
+  .offset-by-ten.column,
+  .offset-by-ten.columns          { margin-left: 86.6666666667%; }
+  .offset-by-eleven.column,
+  .offset-by-eleven.columns       { margin-left: 95.3333333333%; }
+
+
+  .offset-by-one-third.column,
+  .offset-by-one-third.columns    { margin-left: 34.6666666667%; }
+  .offset-by-two-thirds.column,
+  .offset-by-two-thirds.columns   { margin-left: 69.3333333333%; }
+
+  .offset-by-one-half.column,
+  .offset-by-one-half.columns     { margin-left: 52%; }
+
+}
+.Select {
+position:relative;
+    z-index: 1002;
+}
+
+/* Base Styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* NOTE
+html is set to 62.5% so that all the REM measurements throughout Skeleton
+are based on 10px sizing. So basically 1.5rem = 15px :) */
+html {
+  font-size: 62.5%; }
+/*body {
+  font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "Open Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: rgb(50, 50, 50); }*/
+
+
+/* Typography
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 300; }
+h1 { font-size: 4.5rem; line-height: 1.2;  letter-spacing: -.1rem; margin-bottom: 2rem; }
+h2 { font-size: 3.6rem; line-height: 1.25; letter-spacing: -.1rem; margin-bottom: 1.8rem; margin-top: 1.8rem;}
+h3 { font-size: 3.0rem; line-height: 1.3;  letter-spacing: -.1rem; margin-bottom: 1.5rem; margin-top: 1.5rem;}
+h4 { font-size: 2.6rem; line-height: 1.35; letter-spacing: -.08rem; margin-bottom: 1.2rem; margin-top: 1.2rem;}
+h5 { font-size: 2.2rem; line-height: 1.5;  letter-spacing: -.05rem; margin-bottom: 0.6rem; margin-top: 0.6rem;}
+h6 { font-size: 2.0rem; line-height: 1.6;  letter-spacing: 0; margin-bottom: 0.75rem; margin-top: 0.75rem;}
+
+p {
+  margin-top: 0; }
+
+
+/* Blockquotes
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+blockquote {
+  border-left: 4px lightgrey solid;
+  padding-left: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-left: 0rem;
+}
+
+
+/* Links
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+a {
+  color: #1EAEDB;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: bold;
+  }
+a:hover {
+  color: #0FA0CE; }
+
+
+/* Buttons
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: black;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid black;
+  cursor: pointer;
+  box-sizing: border-box; }
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.button:focus,
+button:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus,
+input[type="button"]:focus {
+  color: black;
+  border-color: black;
+  outline: 0; }
+.button.button-primary,
+button.button-primary,
+input[type="submit"].button-primary,
+input[type="reset"].button-primary,
+input[type="button"].button-primary {
+  color: white;
+  background-color: white;
+  border-color: white; }
+.button.button-primary:hover,
+button.button-primary:hover,
+input[type="submit"].button-primary:hover,
+input[type="reset"].button-primary:hover,
+input[type="button"].button-primary:hover,
+.button.button-primary:focus,
+button.button-primary:focus,
+input[type="submit"].button-primary:focus,
+input[type="reset"].button-primary:focus,
+input[type="button"].button-primary:focus {
+  color: black;
+  background-color: white;
+  border-color: black; }
+
+
+/* Forms
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  height: 38px;
+  padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
+  background-color: white;
+  border: 1px solid #D1D1D1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit; /*https://stackoverflow.com/questions/6080413/why-doesnt-input-inherit-the-font-from-body*/}
+/* Removes awkward default styles on some inputs for iOS */
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none; }
+textarea {
+  min-height: 65px;
+  padding-top: 6px;
+  padding-bottom: 6px; }
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border: 1px solid #33C3F0;
+  outline: 0; }
+label,
+legend {
+  display: block;
+  margin-bottom: 0px; }
+fieldset {
+  padding: 0;
+  border-width: 0; }
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline; }
+label > .label-body {
+  display: inline-block;
+  margin-left: .5rem;
+  font-weight: normal; }
+
+
+/* Lists
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+ul {
+  list-style: circle inside; }
+ol {
+  list-style: decimal inside; }
+ol, ul {
+  padding-left: 0;
+  margin-top: 0; }
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin: 1.5rem 0 1.5rem 3rem;
+  font-size: 90%; }
+li {
+  margin-bottom: 1rem; }
+
+
+/* Tables
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+table {
+  border-collapse: collapse;
+}
+th:not(.CalendarDay),
+td:not(.CalendarDay) {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #E1E1E1; }
+th:first-child:not(.CalendarDay),
+td:first-child:not(.CalendarDay) {
+  padding-left: 0; }
+th:last-child:not(.CalendarDay),
+td:last-child:not(.CalendarDay) {
+  padding-right: 0; }
+
+
+/* Spacing
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+button,
+.button {
+  margin-bottom: 0rem; }
+input,
+textarea,
+select,
+fieldset {
+  margin-bottom: 0rem; }
+pre,
+dl,
+figure,
+table,
+form {
+  margin-bottom: 0rem; }
+p,
+ul,
+ol {
+  margin-bottom: 0.75rem; }
+
+/* Utilities
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.u-full-width {
+  width: 100%;
+  box-sizing: border-box; }
+.u-max-full-width {
+  max-width: 100%;
+  box-sizing: border-box; }
+.u-pull-right {
+  float: right; }
+.u-pull-left {
+  float: left; }
+
+
+/* Misc
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+hr {
+  margin-top: 3rem;
+  margin-bottom: 3.5rem;
+  border-width: 0;
+  border-top: 1px solid #E1E1E1; }
+
+
+/* Clearing
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+/* Self Clearing Goodness */
+.container:after,
+.row:after,
+.u-cf {
+  content: "";
+  display: table;
+  clear: both; }
+
+
+.react-numeric-input input {
+    background-color: white !important;
+    border-color: black !important;
+    color: black !important;
+}
+
+.daq-numericinput--light__input{
+ width:100%!important;
+}
+
+.Select-control {
+    background-color: black;
+    border-radius: 4px;
+    border: 1px solid black;
+    color: white;
+    display: table;
+    border-spacing: 0;
+    border-collapse: separate;
+    height: 36px;
+    overflow: hidden;
+}
+
+.react-numeric-input b:nth-child(2) i {
+    border-color: transparent transparent black !important;
+    }
+
+body {
+    background-color: white;
+    color: black;
+    font-family: open sans,sans-serif !important;
+    width: 100%;
+    height: 100%;
+    /*max-width: 100%!important;*/
+    overflow-x: hidden;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+  font-weight: 400;
+
+}
+
+
+.banner{
+    height: fit-content;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: space-between;
+    border-bottom: 1px solid #4b5460;
+    padding: 1em 0rem 0em;
+    width: 100%;
+}
+
+.bannerpadding{
+padding: 0px 0px 0px 20px;
+}
+
+#banner-text {
+        text-align: center
+    }
+
+.banner h5 {
+    font-family: open sans semi bold,sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    font-size: 2rem;
+    letter-spacing: .1rem;
+    /*text-transform: uppercase*/
+}
+
+.banner h6 {
+    font-weight: bold;
+    font-size: 1.6rem;
+    line-height: 1
+}
+
+.banner button {
+    color: black;
+    margin-right: 10px;
+    height: 3rem;
+    padding: 0px 15px;
+    line-height: 3rem;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+#banner-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end
+}
+
+.banner button:hover {
+     color: black;
+    border-color: black
+}
+
+.bannerbuttonpadding{
+padding: 0px 20px 0px 0px;
+}
+
+.logo{
+width: 50px;
+height: auto;
+}
+.logo-header img{
+width:200px;
+height:auto;
+}
+.logo-header h2{
+font-size:30px;
+margin:0px 10px;
+
+}
+
+.headername{
+padding: 6px 20px 5px 0px;
+}
+
+.logo-header-parent{
+    display: flex;
+    align-items: start;
+}
+
+
+.react-numeric-input b:nth-child(3) i {
+    border-color: black transparent transparent!important;
+}
+
+.SingleDatePicker{
+z-index:1000;
+}
+
+
+.Select-placeholder, .Select--single > .Select-control .Select-value {
+    bottom: 0;
+    color: black;
+    left: 0;
+    line-height: 34px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.Select--single>.Select-control .Select-value, .Select-placeholder {
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.Select--single>.Select-control .Select-value, .Select-placeholder {
+    bottom: 0;
+    color: black;
+    left: 0;
+    line-height: 34px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.Select-control {
+    background-color: white;
+    border-color: #d9d9d9 #ccc #b3b3b3;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    color: black;
+    cursor: default;
+    display: table;
+    border-spacing: 0;
+    border-collapse: separate;
+    height: 36px;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.Select-control, .Select-control>span {
+    color: black;
+    background: white !important;
+}
+
+.Select-control, .Select, .Select-value-label, .Select-clear-zone {
+    color: black;
+}
+
+.Select-control {
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    color: black;
+    display: table;
+    border-spacing: 0;
+    border-collapse: separate;
+    height: 36px;
+    overflow: hidden;
+}
+
+.Select-control {
+    background-color: white;
+    border-color: #d9d9d9 #ccc #b3b3b3;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    color: black;
+    cursor: default;
+    display: table;
+    border-spacing: 0;
+    border-collapse: separate;
+    height: 36px;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.Select-control, .Select, .Select-value-label, .Select-clear-zone {
+    color: black;
+}
+
+.Select-input {
+    height: 34px;
+    padding-left: 10px;
+    padding-right: 10px;
+    vertical-align: middle;
+}
+
+.Select-control, .Select-multi-value-wrapper, .Select-menu-outer div {
+    background-color: white;
+}
+
+.Select.has-value.Select--single>.Select-control .Select-value .Select-value-label, .Select.has-value.is-pseudo-focused.Select--single>.Select-control .Select-value .Select-value-label {
+    color: black !important;
+}
+
+.Select-control, .Select-control>span {
+    color:black;
+    background: white !important;
+}
+
+
+.export {
+
+    margin-bottom:20px;
+    color: black;
+}
+
+.dash-spreadsheet-menu{
+ width:100%;
+ display: flex;
+ justify-content:end;
+}
+
+#datatable{
+padding:80px 50px 10px;
+font-size:13px;
+font-weight:bold;
+}
+
+
+
+.SingleDatePickerInput__showClearDate {
+    padding-right: 0px;
+}
+.SingleDatePickerInput__withBorder {
+    border-radius: 4px;
+    border: white !important;
+}
+.SingleDatePickerInput {
+    display: inline-block;
+    background-color: white !important;
+}
+
+input[type="email"], input[type="number"], input[type="search"], input[type="text"], input[type="tel"], input[type="url"], input[type="password"], textarea, select {
+    height: 38px;
+    color:black;
+    padding: 6px 10px;
+    background-color: white;
+    border-color: #a9a9a9!important
+    border: 1px solid #F3F5F4;
+    border-radius: 4px;
+    box-shadow: none;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: inherit;
+}
+input:valid {
+    outline: none black;
+}
+.DateInput_input {
+    box-sizing: border-box;
+}
+.DateInput_input {
+    font-weight: 200;
+    font-size: 19px;
+    line-height: 24px;
+    color: black;
+    background-color: white;
+    width: 100%;
+    padding: 11px 11px 9px;
+    border: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 2px solid transparent;
+    border-left: 0;
+    border-radius: 0;
+}
+
+           #run-chart {
+                width: 37%;
+               height:66vh;
+    margin: 0 12px;
+                             }
+        #bell-curve{
+          width: 37%;
+ height:66vh;
+    margin: 0 12px;
+                }
+                 #run-chart-two {
+                width: 37%;
+ height:66vh;
+    margin: 0 12px;
+                             }
+        #bell-curve-two{
+          width: 37%;
+ height:66vh;
+    margin: 0 12px;
+                }
+
+
+#tabs-content ,#subtabs{
+padding-top: 3px ;
+}
+.tab.jsx-1653633250{
+padding: 7px 0px!important ;
+}
+#subtabs{
+width: 100%;
+    padding: 3px 0px;
+}
+.subtab-style{
+width: 19% !important;
+    padding: 5px 0px !important;
+    height: 100% !important;
+
+}
+.table-div{
+padding-bottom:20px;
+
+}
+#tabs{
+height:100%;
+padding:10px 0px;
+}
+.date_time{
+margin-top:5px;
+}
+/* Tab border */
+.tab.jsx-1653633250{
+border: 0px !important;
+background:#f2f2f2 !important;
+color:black !important;
+}
+.tab--selected.jsx-1653633250, .tab.jsx-1653633250:last-of-type.tab--selected{
+border-bottom:4px solid #91dfd2 !important;
+border-top:0px !important;
+}
+.tab.jsx-3468109796{
+border: 0px !important;
+background:#f2f2f2 !important;
+color:black !important;
+}
+
+.tab--selected.jsx-3468109796, .tab.jsx-3468109796:last-of-type.tab--selected{
+border-bottom:4px solid #dfb991 !important;
+border-top:0px !important;
+}
+.numWidth{
+width:15% !important;
+}
+
+.textEnd{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.Select-menu-order{
+color: black;
+}
+
+
+.tabs {
+    height: 40px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.tab {
+    border-top: 1px solid #e7e9eb;
+    border-bottom: 1px solid #3d3939;
+    border-right: 1px solid #e7e9eb;
+    border-left: 1px solid #e7e9eb;
+    padding: 6px;
+    font-weight: bold;
+    background-color: #e7e9eb;
+    color: black;
+    margin-right: 8px;
+
+}
+
+.tab.selected {
+    border-top: 1px solid #e7e9eb;
+    border-left: 1px solid #e7e9eb;
+    border-right: 1px solid #e7e9eb;
+    background-color: #e7e9eb;
+    font-weight: bold;
+    color: black;
+    padding: 6px;
+    border-bottom: 4px solid #91dfd2;
+    margin-right: 8px;
+
+}
+
+/* Login Page Styling */
+.login-paragraph {
+    color: black;
+    font-family: 'open sans semi bold', sans-serif;
+}
+
+.login-input-user-label {
+    color: #f3f5f4;
+    font-family: 'open sans semi bold', sans-serif;
+}
+
+.login-input-user-box {
+    color: #f3f5f4;
+    font-family: 'open sans semi bold', sans-serif;
+    background: transparent;
+}
+
+.login-password-label {
+    color: black;
+    font-family: 'open sans semi bold', sans-serif;
+}
+
+.login-password-input-box {
+    color: #f3f5f4;
+    font-family: 'open sans semi bold', sans-serif;
+    background: transparent;
+}
+
+.login-button-color {
+    color: #f3f5f4;
+}
+
+.login-page-background {
+    background-color: #1e2130;
+
+    margin: 0;
+    padding: 0;
+}
+
+/* OTP Page Styling */
+.otp-paragraph {
+    color: black;
+    font-family: 'open sans semi bold', sans-serif;
+}
+
+.otp-label {
+    color: black;
+    font-family: 'open sans semi bold', sans-serif;
+}
+
+.otp-entry-box {
+    color: #f3f5f4;
+    font-family: 'open sans semi bold', sans-serif;
+    background: transparent;
+}
+
+.otp-button-color {
+    color: black;
+}
+
+.otp-page-background {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+/* Dashboard Main Heading Styling */
+.logout-button {
+    position: absolute;
+    right: 110px;
+    top: 13px;
+    color:black;
+}
+
+.style1 {
+    height: fit-content;
+    background-color: white;
+    text-align: left;
+    margin-left: 40px;
+    margin-top: 10px;
+    margin-right: 100px;
+    border-top: 20px;
+    font-size: 22px;
+    letter-spacing: .1rem;
+    color: black;
+
+}
+
+.style-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.date-time {
+    color: white;
+    margin-right: 50px;
+    margin-top: 10px;
+    float: right;
+    text-align: right;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.date-time-color {
+    color: black;
+    font-weight:bold;
+}
+
+.style2 {
+    height: fit-content;
+    background-color: white;
+    text-align: up;
+    margin-left: 40px;
+    margin-top: 2px;
+    margin-right: 0px;
+    margin-bottom: 2px;
+    font-size: 16px;
+    letter-spacing: .1rem;
+    color: black;
+    display: inline-block;
+}
+
+.style4 {
+    border-bottom: 1px solid #4b5460;
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 2px;
+}
+
+
+
+/* Summary Dashboard Styling */
+.tab1_paragraph_style {
+    margin: 1rem 2rem 0rem 2rem;
+    font-size: 18px;
+    letter-spacing: .05rem;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+}
+
+.paragraph_style {
+    margin: 4rem 2rem 0rem 2rem;
+    font-size: inherit;
+    font-weight: bold;
+    color: black;
+}
+
+
+.machine_layouts_padding {
+    /*margin-right: 50px;
+    margin-left: 50px;*/
+}
+
+.machine_id_link_padding {
+    padding-left: 5px;
+}
+
+.machine_layouts_bottom_padding {
+    padding: 10px 15px 0px 15px;
+}
+.table-div{
+ display:flex;
+ justify-content:center;
+}
+
+.rect_dashboard {
+    width: 220px;
+    height: 90px;
+    color: white;
+    text-align: left;
+    line-height: normal;
+
+}
+.summary-box{
+
+    border: 1px solid #f2f2f2;
+    background-color: #f3f5f4;
+ border-radius: 5px;
+}
+.cell-table th ,.cell-table td{
+background: white !important;
+ color:black !important;
+ text-align:center !important;
+font-weight:400 !important;
+
+ }
+ .cell-table th{
+ font-weight:bold !important;
+ }
+
+ .cell-table{
+ font-family: open sans,sans-serif !important;
+ }
+
+.dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner th{
+ background: white;
+ color:black;
+}
+
+
+.rect_label_samplesize_style {
+   /* padding-top: 10px;
+    padding-bottom: 2px;
+    color:#f3f5f4 ;
+    margin-left: 20px;
+    /*font-family: open sans,sans-serif;
+    /*font-weight: 700;
+    line-height: 1;*/
+}
+
+.machine_name {
+    color: #1e2130;
+    margin-bottom: 18px;
+    font-weight: 700;
+    line-height: 1;
+    font-size: 16px;
+}
+
+.rect_label_style {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    color: black;
+    margin-left: 14px;
+    font-weight: bold;
+    line-height: 1;
+    font-size: 16px;
+}
+
+.refresh_at_label {
+    font-size: 12px;
+}
+
+/* Specification Settings Styling */
+.specs_machine_name {
+    color: black;
+    margin-bottom: 18px;
+    font-weight: 700;
+    line-height: 1;
+    font-size: 16px;
+}
+
+.spec_space{
+margin:0px 20px !important;
+}
+
+.specs_rating_name {
+    color: black;
+    margin-bottom: 18px;
+    font-weight: 700;
+    line-height: 1;
+    font-size: 16px;
+}
+
+.specs_rating_box_width {
+    width: 300px;
+}
+
+.specs_specs_name {
+    color: black;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    font-size: 16px;
+    margin-right: 20px;
+}
+
+.specs_label_names {
+    color: black;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 14px;
+    font-weight:bold;
+}
+
+.specs_box_styling {
+    width: 15%;
+    color: black;
+    justify-content: center;
+   margin: 0px 40px;
+}
+
+.specs_hist_name {
+    color: black;
+    margin-bottom: 18px;
+    font-weight: 700;
+    line-height: 1;
+    font-size: 16px;
+}
+
+.specs_hist_label_name {
+    color: black;
+    margin-top: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    margin-left: 60px;
+    margin-right: 30px;
+    font-size: 16px;
+}
+
+.specs_hist_box_styling {
+    width: 15%;
+    color: black;
+    justify-content: left;
+   margin: 0px 40px;
+}
+
+.specs_new_value_name {
+    color: black;
+    margin-bottom: 18px;
+    font-weight: 700;
+    line-height: 1;
+    font-size: 16px;
+}
+.react-numeric-input{
+width:100%;
+}
+.numeric_input_1 {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 20px;
+}
+
+.numeric_input_2 {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 18px;
+}
+
+.numeric_input_3 {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 18px;
+}
+
+.numeric_input_4 {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 20px;
+}
+
+.numeric_input_box_styling {
+    width: 15%;
+    justify-content: left;
+    margin-left: 15px;
+}
+
+.specs_update_button {
+    color: black;
+    display: inline;
+    font-weight: bold;
+}
+
+.alert-msg {
+    text-align: end;
+    color: #91dfd2;
+    font-weight: bold;
+    font-size: 16px;
+    width:70%;
+    background:transparent;
+    border:0px;
+}
+
+/* Control Charts Dashboard Styling */
+.sub_tabs_style {
+    justify-content: center;
+}
+
+.table-style{
+    text-align: center;
+    background-color: white;
+    color: black;
+    font-size:16px;
+    font-weight:bold;
+    width: 85%;
+}
+
+.current-pulse-table {
+    color: black;
+    width: 60%;
+    margin: auto;
+}
+ .row{
+ display:flex;
+ flex-wrap: wrap;
+ margin-left:-15px;
+ margin-right:-15px;
+ }
+
+.current-pulse-cell {
+    text-align: center;
+    background-color: white;
+    color: black;
+    font-size: 14px;
+}
+
+.current-pulse-header {
+    background-color: white;
+    font-weight: bold;
+}
+
+.led_div_style {
+    width: 20.5%;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    padding:35px 0px;
+}
+
+.subtabs_div_style {
+    width: 100%;
+    display: inline-block;
+}
+
+.run_chart {
+    display: inline-block;
+    margin: center;
+    width: 39%;
+    margin-right: 10px;
+    margin-left: 2%;
+    padding: 2px;
+    height: 30%;
+    color: black;
+    background-color: #dbdbdb;
+}
+
+.bell_curve {
+    display: inline-block;
+    align: center;
+    width: 39%;
+    margin-right: 0px;
+    margin-left: 0%;
+    padding: 2px;
+    height: 30%;
+    color: #f3f5f4;
+    background-color: #dbdbdb;
+}
+
+.cp_welding_current {
+    color: black;
+    margin-top: 10px;
+    float: center;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1;
+    font-size: 20px;
+}
+
+.cp_welding_current_condition {
+    margin-top: 10px;
+    letter-spacing: .1rem;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    color: #f3f5f4;
+}
+
+.cpk_welding_current {
+    /*color: #a9a9a9;
+    margin-top: 10px;
+    letter-spacing: .05rem;
+    float: center;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1;
+    font-size: 12px;*/
+}
+
+.cpk_welding_current_condition {
+    margin-top: 10px;
+    letter-spacing: .1rem;
+    text-align: center;
+    font-weight: 400;
+    font-size: 10px;
+    color: #f3f5f4;
+}
+
+.cp_pulse {
+    color: #a9a9a9;
+    margin-top: 10px;
+    letter-spacing: .05rem;
+    float: center;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1;
+    font-size: 12px;
+}
+
+.cpk_pulse {
+    color: #a9a9a9;
+    margin-top: 10px;
+    letter-spacing: .05rem;
+    float: center;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1;
+    font-size: 12px;
+}
+
+.div_cp_welding_current {
+    text-align: center;
+    color: #f3f5f4;
+    width: 100%;
+    display: inline-block;
+}
+
+.div_cpk_welding_current {
+    /*text-align: center;
+    color: #f3f5f4;
+    width: 100%;
+    display: inline-block;*/
+}
+
+.div_cpcpk_pulse_value {
+    text-align: center;
+    color: #f3f5f4;
+    width: 100%;
+}
+
+/* Reports Styling */
+
+
+.report_machine_name_dd {
+    color: black;
+    margin-bottom: 15px;
+}
+
+.report_rating_name_dd {
+    color: black;
+    margin-bottom: 15px;
+}
+
+.report_rating_dd_width {
+    width: 300px;
+}
+
+.report_summary {
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 15px;
+    letter-spacing: .1rem;
+    color:black;
+}
+
+.report_machine_name {
+    color:black;
+    font-weight: 700;
+    line-height: 1;
+    font-size: 1.1em;
+    margin-bottom: 18px;
+
+}
+
+.report_rating_name {
+   /*color:#a9a9a9;
+    font-weight: 700;
+    line-height: 1;
+    font-size: 1.1em;
+    margin-bottom: 18px;*/
+}
+
+.report_from_to_date_name {
+   color:black;
+    font-weight: 700;
+    line-height: 1;
+    font-size: 1.1em;
+    margin-bottom: 18px;
+}
+
+.report_to_date_name {
+   /*color:#a9a9a9;
+    font-weight: 700;
+    line-height: 1;
+    font-size: 1.1em;
+    margin-bottom: 18px;*/
+}
+
+.report_submit_button {
+   color:black;
+   margin: 15px 20px 5px 5px;
+}
+
+.report_paragraph_color {
+ color:black;
+}
+
+.report_datatable_color {
+   color:black;
+}
+
+.div_report_button {
+    color: black;
+    font-weight: 700;
+    line-height: 1;
+    font-size: 1.1em;
+    margin-bottom: 18px;
+}
+
+.report_table_style {
+    width: 90%;
+    margin: auto;
+}
+
+.data_table_style_cell {
+    minWidth: 100 !important;
+    maxWidth: 200 !important;
+}
+
+.data_table_style_data {
+ minWidth: 100 !important;
+    maxWidth: 200 !important;
+}
+
+.data_table_style_header {
+    minWidth: 100 !important;
+    maxWidth: 200 !important;
+
+}
+
+.dashboard_page_background_color {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.report-chart {
+    display: inline-block;
+    margin: 2rem;
+    padding: 2px;
+    height: 450px;
+    width: 40%;
+}
+
+
+.report-div{
+text-align: center;
+
+}
+
+
+.tab1_paragraph_style{
+display:none;}
+
+.forAlert{
+display: flex;
+align-items: baseline;
+}
+
+.report-chart{
+background-color:#dbdbdb;
+}
+
+.current-stroke{
+    padding: 10px;
+    margin: 0px 0px 10px 0px;
+    width: 90%;
+}
+
+.specs_clear_button {
+   color:black;
+   margin: 0px 0px 5px 7px;
+   font-weight: bold ;
+}
+
+.form-label{
+    font-weight: bold ;
+}
+
+.add-delete{
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 5px 5px 0px;
+    padding: 10px;
+}
+
+.add-delete-two{
+    width: 70% !important;
+    display: flex;
+    justify-content: space-between;
+    margin: 15px;
+}
+
+.add-delete-btn{
+    display: flex;
+    align-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+}
+
+.alert-add-msg {
+    text-align: end;
+    color: #91dfd2;
+    font-weight: bold;
+    font-size: 16px;
+    width:60%;
+    background:transparent;
+    border:0px;
+}
+
+.add_box_styling {
+    width: 20%;
+    color: black;
+    justify-content: center;
+   margin: 0px 0px 0px 40px;
+}
+
+.add_label_names{
+color: black;
+    margin-bottom: 25px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 14px;
+    font-weight:bold;
+}
+
+.add_input_2 {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+}
+.login-leftSide{
+
+width:100%;
+height:100%;
+}
+.login_paragraph{
+margin: 13px 0px;
+    font-size: 26px;
+}
+
+
+.loginTop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.margin_bottom_10{
+margin-bottom: 10px;
+}
+#otp-input{
+width:100%;
+}
+
+.formPadding{
+margin :5px 20px;
+}
+.img-fluid{
+max-width:100%;
+height:auto;
+}
+.login-leftSide {
+   background-position: center;
+    background: url(../assets/loginImage.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100%;
+    background-color: #f3f1f6;
+}
+
+.login-btn,.otp-btn{
+text-align:right;
+}
+.otp_button_color {
+padding: 3px 12px;
+height:auto;
+line-height:24px
+}
+.login_button_color{
+padding: 3px 18px;
+height:auto;
+line-height:24px
+}
+
+
+.addtextEnd{
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+/* Media Queries
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/*
+Note: The best way to structure the use of media queries is to create the queries
+near the relevant code. For example, if you wanted to change the styles for buttons
+on small devices, paste the mobile query code up in the buttons section and style it
+there.
+*/
+
+
+/* Larger than mobile */
+@media (min-width: 400px) {
+.col-1                    { width: 4.66666666667%; }
+  .col-2                    { width: 13.3333333333%; }
+  .col-3                   { width: 22%;            }
+  .col-4                 { width: 30.6666666667%; }
+   .col-5                 { width: 39.3333333333%; }
+   .col-6                 { width: 48%;            }
+   .col-7                { width: 56.6666666667%; }
+   .col-8                 { width: 65.3333333333%; }
+  .col-9                 { width: 74.0%;          }
+   .col-10                  { width: 82.6666666667%; }
+   .col-11               { width: 91.3333333333%; }
+   .col-12               { width: 100%; margin-left: 0; }
+
+     #run-chart {
+
+                 width:100%;
+     }
+     #bell-curve {
+
+                 width:100%;
+     }
+}
+
+/* Larger than phablet (also point when grid becomes active) */
+@media (min-width: 550px) {
+.col-sm-1                    { width: 4.66666666667%; }
+  .col-sm-2                    { width: 13.3333333333%; }
+  .col-sm-3                   { width: 22%;            }
+  .col-sm-4                 { width: 30.6666666667%; }
+   .col-sm-5                 { width: 39.3333333333%; }
+   .col-sm-6                 { width: 48%;            }
+   .col-sm-7                { width: 56.6666666667%; }
+   .col-sm-8                 { width: 65.3333333333%; }
+  .col-sm-9                 { width: 74.0%;          }
+   .col-sm-10                  { width: 82.6666666667%; }
+   .col-sm-11               { width: 91.3333333333%; }
+   .col-sm-12               { width: 100%; margin-left: 0; }
+
+    #run-chart {
+
+                 width:100%;
+     }
+     #bell-curve {
+
+                 width:100%;
+     }
+}
+
+
+/* Larger than tablet */
+@media (min-width: 750px) {
+.col-md-1                    { width: 4.66666666667%; }
+  .col-md-2                    { width: 13.3333333333%; }
+  .col-md-3                   { width: 22%;            }
+  .col-md-4                 { width: 30.6666666667%; }
+   .col-md-5                 { width: 39.3333333333%; }
+   .col-md-6                 { width: 48%;            }
+   .col-md-7                { width: 56.6666666667%; }
+   .col-md-8                 { width: 65.3333333333%; }
+  .col-md-9                 { width: 74.0%;          }
+   .col-md-10                  { width: 82.6666666667%; }
+   .col-md-11               { width: 91.3333333333%; }
+   .col-md-12               { width: 100%; margin-left: 0; }
+    #run-chart {
+
+                 width:100%;
+
+     }
+     #bell-curve {
+
+                 width:100%;
+     }
+/*.tabs{
+display: grid !important;
+    grid-template-columns: 50% 2fr;
+    grid-gap: 17px;
+}*/
+}
+
+
+
+/* Larger than desktop */
+@media (min-width: 1000px) {
+.col-lg-1                    { width: 4.66666666667%; }
+  .col-lg-2                    { width: 13.3333333333%; }
+  .col-lg-3                   { width: 22%;            }
+  .col-lg-4                 { width: 30.6666666667%; }
+   .col-lg-5                 { width: 39.3333333333%; }
+   .col-lg-6                 { width: 48%;            }
+   .col-lg-7                { width: 56.6666666667%; }
+   .col-lg-8                 { width: 65.3333333333%; }
+  .col-lg-9                 { width: 74.0%;          }
+   .col-lg-10                  { width: 82.6666666667%; }
+   .col-lg-11               { width: 91.3333333333%; }
+   .col-lg-12               { width: 100%; margin-left: 0; }
+
+    #run-chart {
+
+                  width: 37%;
+     }
+     #bell-curve {
+
+                  width: 37%;
+     }
+         #run-chart-two {
+                width: 37%;
+
+    margin: 0 12px;
+                             }
+        #bell-curve2{
+          width: 37%;
+
+    margin: 0 12px;
+                }
+
+.tab.jsx-1653633250{
+width: calc(100% / 4) !important;
+}}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {
+.col-xl-1                    { width: 4.66666666667%; }
+  .col-xl-2                    { width: 13.3333333333%; }
+  .col-xl-3                   { width: 22%;            }
+  .col-xl-4                 { width: 30.6666666667%; }
+   .col-xl-5                 { width: 39.3333333333%; }
+   .col-xl-6                 { width: 48%;            }
+   .col-xl-7                { width: 56.6666666667%; }
+   .col-xl-8                 { width: 65.3333333333%; }
+  .col-xl-9                 { width: 74.0%;          }
+   .col-xl-10                  { width: 82.6666666667%; }
+   .col-xl-11               { width: 91.3333333333%; }
+   .col-xl-12               { width: 100%; margin-left: 0; }
+    #run-chart {
+              /*height: 80vh;*/
+                  width: 37%;
+     }
+     #bell-curve {
+             /*height: 80vh;*/
+                  width: 37%;
+     }
+         #run-chart-two {
+                width: 37%;
+
+    margin: 0 12px;
+                             }
+        #bell-curve2{
+          width: 37%;
+     height: auto;
+    margin: 0 12px;
+                }
+}
+
